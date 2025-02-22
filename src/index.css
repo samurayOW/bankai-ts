@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+@import "tailwindcss";
+
+:root {
+    --font-family: "Oswald", sans-serif;
+    --font-headings: "Permanent Marker", cursive;
+    --color-app-bg: #1c1c1c;
+    --color-app-inner-bg: #504e7c;
+    --color-app-navbar: #201f31;
+    --color-bg: #2d2c45;
+    --color-text: #dbd6d6;
+}
+
+* {
+    font-family: var(--font-family);
+}
+
+button {
+    cursor: pointer;
+}
+
+.font-heading {
+    font-family: var(--font-headings);
+}
+
+@layer components {
+    .section-padding {
+        @apply p-8 lg:p-16;
+    }
+}
