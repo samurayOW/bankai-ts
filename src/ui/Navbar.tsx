@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import logo from "../assets/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdClose, IoMdPerson } from "react-icons/io";
@@ -34,6 +34,10 @@ export default function Navbar(): JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const buttonStyle = "bg-transparent border-none text-stone-50 text-2xl";
   const orderList = useSelector((state: RootState) => state.cart.orderList);
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
+  const navigate = useNavigate();
 
   return (
     <nav className="z-999 sticky top-0 flex items-center justify-between bg-[var(--color-app-navbar)] px-4 py-2 md:px-8">
@@ -48,7 +52,10 @@ export default function Navbar(): JSX.Element {
         </div>
         <div className="flex gap-4 sm:gap-8">
           <button className={`${buttonStyle} relative`}>
-            <Link to="/cart">
+            <Link
+              to={isAuthenticated ? "/cart" : "/my-profile"}
+              onClick={() => setIsMenuOpen(false)}
+            >
               <FaCartShopping />
               <span
                 className={`absolute -right-1 top-3 flex h-[15px] w-[15px] items-center justify-center rounded-full bg-rose-200 text-xs text-stone-950 sm:top-11 ${
@@ -59,7 +66,13 @@ export default function Navbar(): JSX.Element {
               </span>
             </Link>
           </button>
-          <button className={buttonStyle}>
+          <button
+            className={buttonStyle}
+            onClick={() => {
+              navigate("/my-profile");
+              setIsMenuOpen(false);
+            }}
+          >
             <IoMdPerson />
           </button>
           <button

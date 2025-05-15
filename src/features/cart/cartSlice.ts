@@ -9,11 +9,13 @@ interface Order {
 interface State {
   orderList: Order[];
   deliveryFee: number;
+  sum: number;
 }
 
 const initialState: State = {
   orderList: [],
   deliveryFee: 15,
+  sum: 0,
 };
 
 export const mangaSlice = createSlice({
@@ -52,10 +54,22 @@ export const mangaSlice = createSlice({
         (item) => item.manga.documentId !== action.payload
       );
     },
+    clearCart(state) {
+      state.orderList = [];
+    },
+    setSum(state, action: PayloadAction<number>) {
+      state.sum = action.payload;
+    },
   },
 });
 
-export const { addOrder, increaseAmount, decreaseAmount, removeOrder } =
-  mangaSlice.actions;
+export const {
+  addOrder,
+  increaseAmount,
+  decreaseAmount,
+  removeOrder,
+  clearCart,
+  setSum,
+} = mangaSlice.actions;
 
 export default mangaSlice.reducer;

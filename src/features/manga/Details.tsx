@@ -13,6 +13,10 @@ export default function Details({ manga }: { manga?: Manga }): JSX.Element {
           <td className="px-8 py-2">{manga?.Author}</td>
         </tr>
         <tr>
+          <td className="px-8 py-2">Production</td>
+          <td className="px-8 py-2">{manga?.production.Title}</td>
+        </tr>
+        <tr>
           <td className="px-8 py-2">Amount of pages</td>
           <td className="px-8 py-2">{manga?.NumberOfPages}</td>
         </tr>

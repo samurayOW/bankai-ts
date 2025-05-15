@@ -29,7 +29,7 @@ export default function Filters(): JSX.Element {
     <div
       className={`${
         isOpen ? "fixed" : "hidden"
-      } inset-0 z-50 flex items-center justify-center bg-black/50 p-4`}
+      } inset-0 z-999 flex items-center justify-center bg-black/50 p-4`}
     >
       <div className="relative flex max-h-[90vh] w-full max-w-lg flex-wrap justify-center gap-16 overflow-y-auto rounded-xl bg-[var(--color-app-inner-bg)] p-10 shadow-lg sm:overflow-x-hidden">
         <button

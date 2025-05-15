@@ -3,6 +3,7 @@ import homeReducer from "./features/home/homeSlice";
 import buyMangaReducer from "./features/buyManga/buyMangaSlice";
 import mangaReducer from "./features/manga/mangaSlice";
 import cartReducer from "./features/cart/cartSlice";
+import authReducer from "./features/auth/authSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     buyManga: buyMangaReducer,
     manga: mangaReducer,
     cart: cartReducer,
+    auth: authReducer,
   },
 });
 

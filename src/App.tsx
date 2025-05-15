@@ -6,6 +6,8 @@ import Home from "./features/home/Home";
 import Genres from "./features/genres/Genres";
 import Manga from "./features/manga/Manga";
 import Cart from "./features/cart/Cart";
+import Auth from "./features/auth/Auth";
+import Order from "./features/order/Order";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/my-profile",
+        element: <Auth />,
+      },
+      {
+        path: "/order",
+        element: <Order />,
       },
     ],
   },

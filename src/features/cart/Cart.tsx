@@ -1,18 +1,23 @@
 import Heading from "../../ui/Heading";
 import OrderList from "./OrderList";
 import { RootState } from "../../store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LinkBtn from "../../ui/LinkBtn";
+import { useNavigate } from "react-router";
+import { setSum } from "./cartSlice";
 
 export default function Cart() {
   const orderList = useSelector((state: RootState) => state.cart.orderList);
   const deliveryFee = useSelector((state: RootState) => state.cart.deliveryFee);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const totalItemsCost = orderList.reduce(
     (total, el) => total + el.amount * el.manga.Price,
     0
   );
   const totalCost = totalItemsCost + deliveryFee;
+  dispatch(setSum(totalCost));
 
   return (
     <section className="section-padding bg-[var(--color-app-inner-bg)]">
@@ -49,7 +54,10 @@ export default function Cart() {
               <p>Total Sum</p>
               <span>{totalCost.toFixed(2)}$</span>
             </div>
-            <button className="mt-4 rounded-2xl bg-stone-950 p-4 text-stone-50">
+            <button
+              onClick={() => navigate("/order")}
+              className="mt-4 rounded-2xl bg-stone-950 p-4 text-stone-50"
+            >
               Order Now
             </button>
           </div>
