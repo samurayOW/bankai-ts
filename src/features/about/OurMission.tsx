@@ -5,7 +5,7 @@ export default function OurMission() {
   return (
     <section className="section-padding">
       <Heading title="Our Mission" description="" />
-      <div className="mt-4 flex w-full flex-col items-center justify-center gap-4 sm:mt-8 sm:flex-row sm:gap-16">
+      <div className="mt-4 flex w-full flex-col items-center justify-center gap-4 sm:mt-8 sm:gap-16 lg:flex-row">
         <p className="max-w-[600px] text-stone-50/75 md:text-xl">
           At our store, we believe that manga is more than just stories—it’s a
           gateway to new worlds, emotions, and unforgettable adventures. Our
